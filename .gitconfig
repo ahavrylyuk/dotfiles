@@ -17,3 +17,5 @@ email = andriy.havrylyuk@gmail.com
 
 [core]
 	editor = vim
+[push]
+	default = simple
