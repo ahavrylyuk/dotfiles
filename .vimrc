@@ -1,0 +1,2 @@
+set wildmenu
+set relativenumber
