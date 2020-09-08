@@ -122,3 +122,7 @@ export NVM_DIR="/home/andriy/.nvm"
 alias grs='find . -type d -maxdepth 1 -not -name "." -exec sh -c "cd {} && echo {} && git reset --hard HEAD; git fetch -p && git pull && (git branch -vv | grep gone] | awk '"'"'{print(\$1)}'"'"' | xargs git branch -D)" \;'
 alias grma="git branch -vv | grep gone] | awk '{print(\$1)}' | xargs git branch -d"
 alias gtp='git tag $(cat package.json|jq .version|sed '\''s/"/v/'\''|sed '\''s/"//'\'')'
+
+# Host IP address
+export HOST_IP=$(ifconfig | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v 127.0.0.1 | awk '{ print $2 }' | cut -f2 -d: | head -n1)
+
