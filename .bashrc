@@ -117,3 +117,8 @@ fi
 
 export NVM_DIR="/home/andriy/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Git
+alias grs='find . -type d -maxdepth 1 -not -name "." -exec sh -c "cd {} && echo {} && git reset --hard HEAD; git fetch -p && git pull && (git branch -vv | grep gone] | awk '"'"'{print(\$1)}'"'"' | xargs git branch -D)" \;'
+alias grma="git branch -vv | grep gone] | awk '{print(\$1)}' | xargs git branch -d"
+alias gtp='git tag $(cat package.json|jq .version|sed '\''s/"/v/'\''|sed '\''s/"//'\'')'
